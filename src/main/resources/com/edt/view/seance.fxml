@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.edt.controller.SeanceController">
+
+    <top>
+        <VBox spacing="14">
+            <BorderPane.margin>
+                <Insets bottom="16" />
+            </BorderPane.margin>
+            <VBox spacing="2">
+                <Label text="Séances" styleClass="view-title" />
+                <Label text="Construire et consulter l'emploi du temps" styleClass="view-subtitle" />
+            </VBox>
+            <TextField fx:id="txtRecherche" promptText="🔍  Rechercher une séance (matière, enseignant, classe, salle, jour)..." styleClass="search-field" />
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="table" styleClass="table-view">
+            <columns>
+                <TableColumn fx:id="colJour" text="Jour" prefWidth="90" />
+                <TableColumn fx:id="colHeureDebut" text="Début" prefWidth="70" />
+                <TableColumn fx:id="colHeureFin" text="Fin" prefWidth="70" />
+                <TableColumn fx:id="colMatiere" text="Matière" prefWidth="140" />
+                <TableColumn fx:id="colEnseignant" text="Enseignant" prefWidth="130" />
+                <TableColumn fx:id="colClasse" text="Classe" prefWidth="100" />
+                <TableColumn fx:id="colSalle" text="Salle" prefWidth="100" />
+            </columns>
+            <BorderPane.margin>
+                <Insets right="20" />
+            </BorderPane.margin>
+        </TableView>
+    </center>
+
+    <right>
+        <VBox styleClass="card" spacing="10" prefWidth="300">
+            <Label text="Fiche séance" styleClass="form-label" />
+
+            <VBox spacing="4">
+                <Label text="Enseignant *" styleClass="form-label" />
+                <ComboBox fx:id="cbEnseignant" maxWidth="Infinity" />
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Matière *" styleClass="form-label" />
+                <ComboBox fx:id="cbMatiere" maxWidth="Infinity" />
+                <Label fx:id="lblMatiereInfo" wrapText="true" style="-fx-font-size: 11px; -fx-text-fill: #2e7d32;" />
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Classe *" styleClass="form-label" />
+                <ComboBox fx:id="cbClasse" maxWidth="Infinity" />
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Salle *" styleClass="form-label" />
+                <ComboBox fx:id="cbSalle" maxWidth="Infinity" />
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Jour *" styleClass="form-label" />
+                <ComboBox fx:id="cbJour" maxWidth="Infinity" />
+            </VBox>
+            <HBox spacing="8">
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label text="Début (HH:mm) *" styleClass="form-label" />
+                    <TextField fx:id="txtHeureDebut" promptText="8 ou 08:00" />
+                </VBox>
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label text="Fin (HH:mm) *" styleClass="form-label" />
+                    <TextField fx:id="txtHeureFin" promptText="10 ou 10:00" />
+                </VBox>
+            </HBox>
+
+
+            <HBox spacing="8">
+                <Button text="Ajouter" onAction="#ajouter" styleClass="btn-primary" />
+                <Button text="Modifier" onAction="#modifier" styleClass="btn-secondary" />
+            </HBox>
+            <HBox spacing="8">
+                <Button text="Supprimer" onAction="#supprimer" styleClass="btn-danger" />
+                <Button text="Effacer" onAction="#effacer" styleClass="btn-secondary" />
+            </HBox>
+        </VBox>
+    </right>
+
+</BorderPane>

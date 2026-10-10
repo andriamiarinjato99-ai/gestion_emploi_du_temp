@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.edt.controller.DashboardController"
+      spacing="20">
+
+    <VBox spacing="2">
+        <Label text="Tableau de bord" styleClass="view-title" />
+        <Label text="Vue d'ensemble de l'emploi du temps" styleClass="view-subtitle" />
+    </VBox>
+
+    <HBox spacing="16">
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" alignment="CENTER_LEFT" spacing="4">
+            <Label fx:id="lblNbEnseignants" text="0" styleClass="stat-value" />
+            <Label text="Enseignants" styleClass="stat-label" />
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" alignment="CENTER_LEFT" spacing="4">
+            <Label fx:id="lblNbMatieres" text="0" styleClass="stat-value" />
+            <Label text="Matières" styleClass="stat-label" />
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" alignment="CENTER_LEFT" spacing="4">
+            <Label fx:id="lblNbClasses" text="0" styleClass="stat-value" />
+            <Label text="Classes" styleClass="stat-label" />
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" alignment="CENTER_LEFT" spacing="4">
+            <Label fx:id="lblNbSalles" text="0" styleClass="stat-value" />
+            <Label text="Salles" styleClass="stat-label" />
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" alignment="CENTER_LEFT" spacing="4">
+            <Label fx:id="lblNbSeances" text="0" styleClass="stat-value" />
+            <Label text="Séances programmées" styleClass="stat-label" />
+        </VBox>
+    </HBox>
+
+    <VBox styleClass="card" spacing="10" VBox.vgrow="ALWAYS">
+        <Label text="Répartition des séances par jour" styleClass="form-label" />
+        <BarChart fx:id="chartSeances" VBox.vgrow="ALWAYS" legendVisible="false" animated="false">
+            <xAxis>
+                <CategoryAxis label="Jour" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="Nombre de séances" />
+            </yAxis>
+        </BarChart>
+    </VBox>
+
+</VBox>

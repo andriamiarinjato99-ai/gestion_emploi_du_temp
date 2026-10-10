@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.edt.controller.EnseignantController">
+
+    <top>
+        <VBox spacing="14">
+            <BorderPane.margin>
+                <Insets bottom="16" />
+            </BorderPane.margin>
+            <VBox spacing="2">
+                <Label text="Enseignants" styleClass="view-title" />
+                <Label text="Gérer la liste des enseignants" styleClass="view-subtitle" />
+            </VBox>
+            <TextField fx:id="txtRecherche" promptText="🔍  Rechercher un enseignant (nom, prénom, email, spécialité)..." styleClass="search-field" />
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="table" styleClass="table-view">
+            <columns>
+                <TableColumn fx:id="colNom" text="Nom" prefWidth="120" />
+                <TableColumn fx:id="colPrenom" text="Prénom" prefWidth="120" />
+                <TableColumn fx:id="colEmail" text="Email" prefWidth="200" />
+                <TableColumn fx:id="colTelephone" text="Téléphone" prefWidth="120" />
+                <TableColumn fx:id="colSpecialite" text="Spécialité" prefWidth="140" />
+                <TableColumn fx:id="colMatiere" text="Matière enseignée" prefWidth="160" />
+            </columns>
+            <BorderPane.margin>
+                <Insets right="20" />
+            </BorderPane.margin>
+        </TableView>
+    </center>
+
+    <right>
+        <VBox styleClass="card" spacing="12" prefWidth="300">
+            <Label text="Fiche enseignant" styleClass="form-label" />
+
+            <VBox spacing="4">
+                <Label text="Nom *" styleClass="form-label" />
+                <TextField fx:id="txtNom" />
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Prénom *" styleClass="form-label" />
+                <TextField fx:id="txtPrenom" />
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Email *" styleClass="form-label" />
+                <TextField fx:id="txtEmail" />
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Téléphone * (10 chiffres)" styleClass="form-label" />
+                <TextField fx:id="txtTelephone" promptText="0341234567" />
+                <Label fx:id="lblTelephoneInfo" style="-fx-font-size: 11px; -fx-text-fill: #c62828;" />
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Spécialité" styleClass="form-label" />
+                <TextField fx:id="txtSpecialite" />
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Matière enseignée" styleClass="form-label" />
+                <ComboBox fx:id="cbMatiere" maxWidth="Infinity" />
+            </VBox>
+
+            <HBox spacing="8">
+                <Button text="Ajouter" onAction="#ajouter" styleClass="btn-primary" />
+                <Button text="Modifier" onAction="#modifier" styleClass="btn-secondary" />
+            </HBox>
+            <HBox spacing="8">
+                <Button text="Supprimer" onAction="#supprimer" styleClass="btn-danger" />
+                <Button text="Effacer" onAction="#effacer" styleClass="btn-secondary" />
+            </HBox>
+        </VBox>
+    </right>
+
+</BorderPane>

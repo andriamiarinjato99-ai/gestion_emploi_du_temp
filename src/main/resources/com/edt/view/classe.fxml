@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.edt.controller.ClasseController">
+
+    <top>
+        <VBox spacing="14">
+            <BorderPane.margin>
+                <Insets bottom="16" />
+            </BorderPane.margin>
+            <VBox spacing="2">
+                <Label text="Classes" styleClass="view-title" />
+                <Label text="Gérer les classes / groupes d'étudiants" styleClass="view-subtitle" />
+            </VBox>
+            <TextField fx:id="txtRecherche" promptText="🔍  Rechercher une classe (nom, niveau)..." styleClass="search-field" />
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="table" styleClass="table-view">
+            <columns>
+                <TableColumn fx:id="colNom" text="Nom" prefWidth="150" />
+                <TableColumn fx:id="colNiveau" text="Niveau" prefWidth="150" />
+                <TableColumn fx:id="colEffectif" text="Effectif" prefWidth="120" />
+            </columns>
+            <BorderPane.margin>
+                <Insets right="20" />
+            </BorderPane.margin>
+        </TableView>
+    </center>
+
+    <right>
+        <VBox styleClass="card" spacing="12" prefWidth="300">
+            <Label text="Fiche classe" styleClass="form-label" />
+
+            <VBox spacing="4">
+                <Label text="Nom *" styleClass="form-label" />
+                <TextField fx:id="txtNom" />
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Niveau" styleClass="form-label" />
+                <TextField fx:id="txtNiveau" />
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Effectif *" styleClass="form-label" />
+                <TextField fx:id="txtEffectif" />
+            </VBox>
+
+            <HBox spacing="8">
+                <Button text="Ajouter" onAction="#ajouter" styleClass="btn-primary" />
+                <Button text="Modifier" onAction="#modifier" styleClass="btn-secondary" />
+            </HBox>
+            <HBox spacing="8">
+                <Button text="Supprimer" onAction="#supprimer" styleClass="btn-danger" />
+                <Button text="Effacer" onAction="#effacer" styleClass="btn-secondary" />
+            </HBox>
+        </VBox>
+    </right>
+
+</BorderPane>
